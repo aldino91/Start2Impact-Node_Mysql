@@ -36,7 +36,7 @@ const create = async (req, res) => {
     const city = req.body.city;
     const time = req.body.time;
     const nameImage = `${time + "-" + req.file.originalname}`;
-    const image = `https://star2impact-pollution.herokuapp.com/${nameImage}`;
+    const image = `http://localhost:9000/${nameImage}`;
     if (!req.file) {
       return res.send("Devi sciegliere una immagine!!");
     }
@@ -60,7 +60,7 @@ const update = async (req, res) => {
     const id = req.params.id;
     const { name, comment, temp, city, time } = req.body;
     const nameImage = `${time + "-" + req.file.originalname}`;
-    const image = `https://star2impact-pollution.herokuapp.com/${nameImage}`; /* https://star2impact-pollution.herokuapp.com/ */
+    const image = `http://localhost:9000/${nameImage}`; /* https://star2impact-pollution.herokuapp.com/ */
 
     const searchReport = await report.findOne({
       where: {

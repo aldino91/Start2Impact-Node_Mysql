@@ -7,7 +7,7 @@ export default function GetReport({ data }) {
     <>
       {data[0] == undefined ? (
         <div className="p-1 mt-6 text-center text-red-700 underline rounded-md shadow-md text-bold shadow-slate-400">
-          Per il momento non abbiamo trovato nulla su questa cittá!
+          Per il momento non abbiamo trovato niente nel nostro database!
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 p-5 md:grid-cols-3 lg:grid-cols-4">

@@ -5,5 +5,5 @@ const nextConfig = {
     domains: ["star2impact-pollution.herokuapp.com"],
   },
 };
-
+/* star2impact-pollution.herokuapp.com */
 module.exports = nextConfig;
