@@ -12,6 +12,22 @@ const index = async (req, res) => {
   }
 };
 
+const getReportByCity = async (req, res) => {
+  const { city } = req.query;
+  try {
+    const reports = await report.findAll({
+      where: {
+        city: {
+          [Op.eq]: city,
+        },
+      },
+    });
+    res.send(reports);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const getReport = async (req, res) => {
   const id = req.params.id;
   try {
@@ -124,6 +140,7 @@ const Delete = async (req, res) => {
 
 module.exports = {
   index,
+  getReportByCity,
   getReport,
   create,
   update,

@@ -2,7 +2,9 @@ const router = require("express").Router();
 const upload = require("../multer/multer");
 const {
   index,
+  getReportByCity,
   getReport,
+
   create,
   update,
   Delete,
@@ -11,6 +13,8 @@ const {
 router.get("/reports", index);
 
 router.get("/reports/:id", getReport);
+
+router.get("/reports", getReportByCity);
 
 router.post("/reports", upload.single("image"), create);
 
