@@ -4,7 +4,6 @@ const {
   index,
   getReportByCity,
   getReport,
-
   create,
   update,
   Delete,
@@ -14,7 +13,7 @@ router.get("/reports", index);
 
 router.get("/reports/:id", getReport);
 
-router.get("/reports", getReportByCity);
+router.get("/reports/city/:city", getReportByCity);
 
 router.post("/reports", upload.single("image"), create);
 

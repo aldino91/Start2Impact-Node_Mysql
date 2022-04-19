@@ -25,9 +25,9 @@ export const fetchIdGet = async (id, setData) => {
     console.log(error);
   }
 };
-export const fetchGetReport = async (id, setData) => {
+export const fetchGetReport = async (setData) => {
   try {
-    const urlGet = `${process.env.NEXT_PUBLIC_URL_GET_ID_API + id}`;
+    const urlGet = `${process.env.NEXT_PUBLIC_URL_GET_API}`;
     const resp = await axios.get(urlGet);
     return setData(resp.data);
   } catch (error) {
@@ -35,11 +35,12 @@ export const fetchGetReport = async (id, setData) => {
   }
 };
 
-export const fetchCityGet = async (setData) => {
+export const fetchCityGet = async (e, setData, city) => {
   try {
-    const urlGet = `${process.env.NEXT_PUBLIC_URL_GET_API}`;
+    const urlGet = `${process.env.NEXT_PUBLIC_URL_GET_CITY_API + city}`;
     const resp = await axios.get(urlGet);
     setData(resp.data);
+    e.target.reset();
   } catch (error) {
     console.log(error);
   }

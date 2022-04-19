@@ -13,7 +13,7 @@ const index = async (req, res) => {
 };
 
 const getReportByCity = async (req, res) => {
-  const { city } = req.query;
+  const city = req.params.city;
   try {
     const reports = await report.findAll({
       where: {

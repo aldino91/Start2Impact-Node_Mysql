@@ -7,16 +7,10 @@ import { fetchCityGet } from "../utils/fetchapi/AllFetchApi";
 export default function SearchYourReport() {
   const [city, setCity] = useState();
   const [data, setData] = useState([]);
-  const [searchCity, setSearchCity] = useState();
 
-  useEffect(() => {
-    fetchCityGet(setData);
-  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const dataFilter = data.filter((res) => res.city == city);
-    setSearchCity(dataFilter);
-    e.target.reset();
+    fetchCityGet(e, setData, city);
   };
 
   return (
@@ -47,13 +41,7 @@ export default function SearchYourReport() {
         </form>
       </div>
       <div>
-        {!searchCity ? (
-          <div className="mt-6 text-center text-red-700 underline text-bold">
-            Cerca una cittá!
-          </div>
-        ) : (
-          <GetReport data={searchCity} />
-        )}
+        <GetReport data={data} />
       </div>
     </Layout>
   );
